@@ -109,7 +109,7 @@ const createUser = async (
   userData.id = user.uid;
   const idFileReference = ref(storage, `users/${user.uid}/idFile.jpg`);
   await uploadBytes(idFileReference, idFile);
-  await setDoc(docRef, { userData });
+  await setDoc(docRef, { ...userData });
 };
 
 const updateUser = async (userId: string, userData: UserData) => {
